@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React, { useState , useEffect } from "react";
 import {
   Route,
@@ -14,6 +15,12 @@ import { auth } from "./services/firebase";
 import './styles.css';
 
 const PrivateRoute = ({ component: Component, authenticated, ...rest }) => {
+=======
+import logo from './logo.svg';
+import './App.css';
+
+function App() {
+>>>>>>> parent of 0d13b76 (Version 1 completed)
 =======
 import logo from './logo.svg';
 import './App.css';
@@ -40,6 +47,7 @@ function App() {
   );
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 const PublicRoute = ({ component: Component, authenticated, ...rest }) => {
   return (
@@ -158,6 +166,9 @@ const App = () => {
 }
 
 export default App;
+=======
+export default App;
+>>>>>>> parent of 0d13b76 (Version 1 completed)
 =======
 export default App;
 >>>>>>> parent of 0d13b76 (Version 1 completed)
