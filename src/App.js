@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState , useEffect } from "react";
 import {
   Route,
   BrowserRouter as Router,
@@ -10,7 +10,7 @@ import Chat from "./pages/Chat";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import { auth } from "./services/firebase";
-import './styles.css';
+import './styles.css'; 
 
 function PrivateRoute({ component: Component, authenticated, ...rest }) {
   return (
@@ -44,59 +44,52 @@ function PublicRoute({ component: Component, authenticated, ...rest }) {
   );
 }
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      authenticated: false,
-      loading: true
-    };
-  }
+const App = () => {
 
-  componentDidMount() {
-    auth().onAuthStateChanged(user => {
-      if (user) {
-        this.setState({
-          authenticated: true,
-          loading: false
-        });
-      } else {
-        this.setState({
-          authenticated: false,
-          loading: false
-        });
+  const [ authenticated , setAunthenticated ] = useState(false);
+  const [ loading , setLoading ] = useState(true);
+
+
+  useEffect(() => {
+    auth().onAuthStateChanged( user => {
+      if(user) {
+        setAunthenticated(true);
+        setLoading(false);
+      }else{
+        setAunthenticated(false);
+        setLoading(false)
       }
-    });
-  }
+    })
+  } , [])
 
-  render() {
-    return this.state.loading === true ? (
+
+
+  return loading === true ? (
       <div className="spinner-border text-success" role="status">
-        <span className="sr-only">Loading...</span>
-      </div>
-    ) : (
-        <Router>
+         <span className="sr-only">Loading...</span>
+       </div>
+  ) : (
+      <Router>
           <Switch>
-            <Route exact path="/" component={Home} />
-            <PrivateRoute
-              path="/chat"
-              authenticated={this.state.authenticated}
-              component={Chat}
-            />
-            <PublicRoute
-              path="/signup"
-              authenticated={this.state.authenticated}
-              component={Signup}
-            />
-            <PublicRoute
-              path="/login"
-              authenticated={this.state.authenticated}
-              component={Login}
-            />
+              <Route exact path = '/' component = {Home} />
+              <PrivateRoute 
+                path = '/chat'
+                authenticated = {authenticated}
+                component = {Chat}
+              />
+              <PublicRoute 
+              path = '/signup'
+              authenticated = {authenticated}
+              component = {Signup}
+              />
+              <PublicRoute 
+              path = '/login'
+              authenticated = {authenticated}
+              component = {Login}
+              />
           </Switch>
-        </Router>
-      );
-  }
+      </Router>
+  )
 }
 
 export default App;

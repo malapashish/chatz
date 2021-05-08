@@ -1,6 +1,6 @@
 import { db } from "../services/firebase";
 
-export function readChats() {
+export const readChats = () => {
   let abc = [];
   db.ref("chats").on("value", snapshot => {
     snapshot.forEach(snap => {
@@ -10,7 +10,7 @@ export function readChats() {
   });
 }
 
-export function writeChats(message) {
+export const writeChats = (message) => {
   return db.ref("chats").push({
     content: message.content,
     timestamp: message.timestamp,
