@@ -26,7 +26,7 @@ export default class Chat extends Component {
       db.ref("chats").on("value", snapshot => {
         let chats = [];
         snapshot.forEach((snap) => {
-          chats.push(snap.val());
+          chats.push(snap.val()); 
         });
         chats.sort(function (a, b) { return a.timestamp - b.timestamp })
         this.setState({ chats });
@@ -52,7 +52,9 @@ export default class Chat extends Component {
       await db.ref("chats").push({
         content: this.state.content,
         timestamp: Date.now(),
-        uid: this.state.user.uid
+        uid: this.state.user.uid,
+        photo : this.state.user.photoURL,
+        userName : this.state.user.displayName
       });
       this.setState({ content: '' });
       chatArea.scrollBy(0, chatArea.scrollHeight);
@@ -68,6 +70,15 @@ export default class Chat extends Component {
   }
 
   render() {
+
+    const myStyle = {
+      width: "40px",
+      height: "40px",
+      borderRadius: "50%",
+      margin: "2px 5px"
+    }
+
+
     return (
       <div>
         <Header />
@@ -80,6 +91,8 @@ export default class Chat extends Component {
           {/* chat area */}
           {this.state.chats.map(chat => {
             return <p key={chat.timestamp} className={"chat-bubble " + (this.state.user.uid === chat.uid ? "current-user" : "")}>
+              <span style = {{ display : 'block' , fontSize : '15px', marginLeft : '10px' , fontWeight : 'bold'}} >{chat.userName}</span>
+              <img src = {chat.photo}  alt = {chat.userName} style = {myStyle}  />
               {chat.content}
               <br />
               <span className="chat-time float-right">{this.formatTime(chat.timestamp)}</span>
