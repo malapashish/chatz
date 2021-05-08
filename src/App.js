@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState , useEffect } from "react";
 import {
   Route,
@@ -13,22 +14,33 @@ import { auth } from "./services/firebase";
 import './styles.css';
 
 const PrivateRoute = ({ component: Component, authenticated, ...rest }) => {
+=======
+import logo from './logo.svg';
+import './App.css';
+
+function App() {
+>>>>>>> parent of 0d13b76 (Version 1 completed)
   return (
-    <Route
-      {...rest}
-      render={props =>
-        authenticated === true ? (
-          <Component {...props} />
-        ) : (
-            <Redirect
-              to={{ pathname: "/login", state: { from: props.location } }}
-            />
-          )
-      }
-    />
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
 
+<<<<<<< HEAD
 const PublicRoute = ({ component: Component, authenticated, ...rest }) => {
   return (
     <Route
@@ -146,3 +158,6 @@ const App = () => {
 }
 
 export default App;
+=======
+export default App;
+>>>>>>> parent of 0d13b76 (Version 1 completed)
