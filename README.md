@@ -48,7 +48,6 @@ List of features ready and TODOs for future development
 
 To-do list:
 * Chat Room
-* User Avatar
 
 ## Status
 Project is : _in progess_
