@@ -39,6 +39,10 @@ body {
   width: 60%;
 }
 
+.userName {
+  font-size: 20px;
+}
+
 .form-control:focus {
   box-shadow: none;
 }
@@ -59,5 +63,9 @@ body {
 
   .chat-area .chat-bubble {
     max-width: 250px;
+  }
+
+  .userName {
+    font-size: 10px;
   }
 }

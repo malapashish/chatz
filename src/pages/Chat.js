@@ -91,7 +91,7 @@ export default class Chat extends Component {
           {/* chat area */}
           {this.state.chats.map(chat => {
             return <p key={chat.timestamp} className={"chat-bubble " + (this.state.user.uid === chat.uid ? "current-user" : "")}>
-              <span style = {{ display : 'block' , fontSize : '15px', marginLeft : '10px' , fontWeight : 'bold'}} >{chat.userName}</span>
+              <span style = {{ display : 'block' , fontSize : '15px', marginLeft : '10px' , fontWeight : 'bold'}} className = "userName" >{chat.userName}</span>
               <img src = {chat.photo}  alt = {chat.userName} style = {myStyle}  />
               {chat.content}
               <br />
