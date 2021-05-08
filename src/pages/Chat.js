@@ -73,7 +73,7 @@ export default class Chat extends Component {
 
     const myStyle = {
       width: "40px",
-      height: "40px",
+      height: "39px",
       borderRadius: "50%",
       margin: "2px 5px"
     }
