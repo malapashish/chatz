@@ -11,7 +11,7 @@
 * [Status](#status)
 
 ## General info
-The project is a simple chat application built using React. For backend Firebase is used. React routing is also used for routing. For styling along with personal styles bootstrap is used. For authentication Google Auth is used provided by Firebase.
+The project is a simple chat application built using React. For backend Firebase is used. React routing is also used for routing. For styling along with personal styles bootstrap is used. For authentication Google Auth provided by Firebase is used.
 
 ## Screenshots
 
