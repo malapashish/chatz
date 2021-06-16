@@ -9,6 +9,7 @@ const SignUp = () =>{
   const [ password , setPassword ] = useState("");
 
   const handleSubmit = async(e) => {
+    console.log('Action detected');
     e.preventDefault();
     setError("");
     try{
@@ -62,7 +63,7 @@ const SignUp = () =>{
         </div>
         <div className = "form-group" > 
           {error ? <p className = 'text-danger'>{error}</p> : null}        
-          <button className="btn btn-primary px-5" type="submit">Sign up</button>
+          <button className="btn btn-primary px-5" type="submit" onClick = {handleSubmit}>Sign up</button>
         </div>
         <p>You can also sign up with any of these services</p>
         <button className = 'btn btn-danger mr-2' type = "button" onClick = {googleSignIn} >

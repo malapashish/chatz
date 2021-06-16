@@ -53,7 +53,7 @@ export default class Chat extends Component {
         content: this.state.content,
         timestamp: Date.now(),
         uid: this.state.user.uid,
-        photo : this.state.user.photoURL,
+        photo : this.state.user.photoURL || 'https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png',
         userName : this.state.user.displayName
       });
       this.setState({ content: '' });
@@ -92,7 +92,7 @@ export default class Chat extends Component {
           {this.state.chats.map(chat => {
             return <p key={chat.timestamp} className={"chat-bubble " + (this.state.user.uid === chat.uid ? "current-user" : "")}>
               <span className = "test">{chat.userName}</span>
-              <img src = {chat.photo}  alt = {chat.userName} style = {myStyle}  />
+              <img src = {chat.photo || 'https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png'}  alt = {chat.userName} style = {myStyle}  />
               {chat.content}
               <br />
               <span className="chat-time float-right">{this.formatTime(chat.timestamp)}</span>
