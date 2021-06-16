@@ -16,6 +16,10 @@ const HomePage = () => {
                  <Link className="btn btn-primary px-5 mr-3" to="/signup">Create New Account</Link>
                  <Link className="btn px-5" to="/login">Login to Your Account</Link>
                </div>
+                 <p>For test login <br/>
+                   Email : test@gmail.com <br/>
+                   Password : test@passw0rd <br/>
+                 </p>
              </div>
            </div>
          </section>
